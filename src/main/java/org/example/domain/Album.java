@@ -37,6 +37,7 @@ public class Album {
         this.anLansare = anLansare;
     }
 
+
     @Override
     public String toString() {
         return "Album{" +
