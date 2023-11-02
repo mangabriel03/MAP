@@ -6,11 +6,21 @@ public class Album {
     private int idAlbum;
     private String titlu;
     private LocalDate anLansare;
+    private int idTrupa;
 
-    public Album(int idAlbum, String titlu, LocalDate anLansare) {
+    public Album(int idAlbum,int idTrupa ,String titlu, LocalDate anLansare) {
         this.idAlbum = idAlbum;
+        this.idTrupa = idTrupa;
         this.titlu = titlu;
         this.anLansare = anLansare;
+    }
+
+    public int getIdTrupa() {
+        return idTrupa;
+    }
+
+    public void setIdTrupa(int idTrupa) {
+        this.idTrupa = idTrupa;
     }
 
     public int getIdAlbum() {
@@ -44,6 +54,7 @@ public class Album {
                 "idAlbum=" + idAlbum +
                 ", titlu='" + titlu + '\'' +
                 ", anLansare=" + anLansare +
+                ", idTrupa=" + idTrupa +
                 '}';
     }
 }

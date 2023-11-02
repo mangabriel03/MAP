@@ -9,6 +9,7 @@ public class Concert {
     private int idTrupa;
     private String locatie;
 
+
     public Concert(int idConcert, LocalDate data, String nume, int idTrupa, String locatie) {
         this.idConcert = idConcert;
         this.data = data;

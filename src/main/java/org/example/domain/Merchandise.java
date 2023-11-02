@@ -4,10 +4,10 @@ public class Merchandise {
     private int idProdus;
     private String numeProdus;
     private int stoc;
-    private int pret;
+    private float pret;
     private int idTrupa;
 
-    public Merchandise(int idProdus, String numeProdus, int stoc, int pret, int idTrupa) {
+    public Merchandise(int idProdus, String numeProdus, int stoc, float pret, int idTrupa) {
         this.idProdus = idProdus;
         this.numeProdus = numeProdus;
         this.stoc = stoc;
@@ -39,11 +39,11 @@ public class Merchandise {
         this.stoc = stoc;
     }
 
-    public int getPret() {
+    public float getPret() {
         return pret;
     }
 
-    public void setPret(int pret) {
+    public void setPret(float pret) {
         this.pret = pret;
     }
 

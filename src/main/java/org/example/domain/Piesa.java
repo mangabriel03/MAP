@@ -5,9 +5,9 @@ import java.time.LocalDate;
 public class Piesa {
     private int idPiesa;
     private String titlu;
-    private int durata;
+    private float durata;
 
-    public Piesa(int idPiesa, String titlu, int durata) {
+    public Piesa(int idPiesa, String titlu, float durata) {
         this.idPiesa = idPiesa;
         this.titlu = titlu;
         this.durata = durata;
@@ -29,11 +29,11 @@ public class Piesa {
         this.titlu = titlu;
     }
 
-    public int getDurata() {
+    public float getDurata() {
         return durata;
     }
 
-    public void setDurata(int durata) {
+    public void setDurata(float durata) {
         this.durata = durata;
     }
 
