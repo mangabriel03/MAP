@@ -4,6 +4,7 @@ import org.example.domain.Piesa;
 //import org.example.domain.Trupa;
 import org.example.domain.Trupa;
 import org.example.domain.Turneu;
+//aaaaaaaa
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +13,14 @@ public class PieseRepo {
     private final List<Piesa> piese = new ArrayList<>();
     private int nextIdPiesa = 1;
 
+
     public Piesa createPiesa(String titlu, float durata){
         Piesa piesa = new Piesa(nextIdPiesa,titlu,durata);
         nextIdPiesa++;
         piese.add(piesa);
         return piesa;
     }
+
 
     public Piesa getPiesaById(int id){
         for(Piesa p : piese){
@@ -48,6 +51,7 @@ public class PieseRepo {
             piese.remove(piesaToRemove);
         }
     }
+
 
 
 }
