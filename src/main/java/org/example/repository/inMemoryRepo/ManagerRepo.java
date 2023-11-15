@@ -11,12 +11,16 @@ public class ManagerRepo {
     private int nextIdManager = 1;
     public Manager createManager(String nume, String prenume, LocalDate dataNasterii){
         Manager manager = new Manager(nextIdManager, nume, prenume, dataNasterii);
+        if (manager.getDataNasterii().isAfter(LocalDate.now()))
+            throw new IllegalArgumentException();
         manageri.add(manager);
         nextIdManager++;
         return manager;
     }
 
     public Manager getManagerById(int id){
+        if (id < 0)
+            throw new IllegalArgumentException();
         for (Manager manager : manageri){
             if (manager.getIdManager() == id)
                 return manager;
