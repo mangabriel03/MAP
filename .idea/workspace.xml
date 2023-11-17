@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fda91b64-bec0-4558-b07b-dcc2bf8778b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/MelodieAppUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Cover.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Melodie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/MelodieFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Original.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Single.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/MerchandiseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/MerchandiseUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MerchandiseUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/inMemoryRepo/MerchandiseRepoStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/inMemoryRepo/MerchandiseRepoStrategy.java" afterDir="false" />
-    </list>
+    <list default="true" id="fda91b64-bec0-4558-b07b-dcc2bf8778b1" name="Changes" comment="Factory and Strategy" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,9 +21,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2YGUwoQgJXjJu8oEQ7NtrCZAVZq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -48,6 +36,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "backup",
+    "last_opened_file_path": "C:/Users/pc/Desktop/Anul 2/Backup/BackupProject",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -89,10 +78,43 @@
       <option name="presentableId" value="Default" />
       <updated>1700151655839</updated>
       <workItem from="1700151656738" duration="10282000" />
+      <workItem from="1700215412035" duration="301000" />
     </task>
+    <task id="LOCAL-00001" summary="Factory and Strategy">
+      <option name="closed" value="true" />
+      <created>1700215466542</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700215466542</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Factory and Strategy">
+      <option name="closed" value="true" />
+      <created>1700215586757</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700215586757</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Factory and Strategy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Factory and Strategy" />
   </component>
 </project>
