@@ -2,6 +2,7 @@ package Main;
 
 import UI.*;
 import domain.AdaugaAdaosPretStrategy;
+import domain.MelodieFactory;
 import repository.inMemoryRepo.MerchandiseRepo;
 import repository.inMemoryRepo.MerchandiseRepoStrategy;
 
@@ -27,7 +28,8 @@ public class Main {
             System.out.println("7. Piesa ");
             System.out.println("8. Trupa ");
             System.out.println("9. Turneu ");
-            System.out.println("10. Iesire");
+            System.out.println("10. MelodieFactory");
+            System.out.println("11. Iesire");
             System.out.print("Alegeti comanda: ");
 
             int choice = scanner.nextInt();
@@ -62,6 +64,8 @@ public class Main {
                     TurneuUI.main(new String[]{});
                     break;
                 case 10:
+                    MelodieAppUI.main(new String[]{});
+                case 11:
                     running = false;
                     break;
                 default:

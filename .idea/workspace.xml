@@ -5,16 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fda91b64-bec0-4558-b07b-dcc2bf8778b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/MelodieAppUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Cover.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Melodie.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/MelodieFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Original.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Single.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/MerchandiseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/MerchandiseUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/MerchandiseUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/inMemoryRepo/MerchandiseRepoStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/inMemoryRepo/MerchandiseRepoStrategy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "backup",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -41,6 +55,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
@@ -69,7 +88,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700151655839</updated>
-      <workItem from="1700151656738" duration="443000" />
+      <workItem from="1700151656738" duration="10282000" />
     </task>
     <servers />
   </component>

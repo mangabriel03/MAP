@@ -148,11 +148,13 @@ public class MerchandiseUI {
             PretStrategy pretStrategy = new AplicaDiscountPretStrategy(procent);
             MerchandiseRepoStrategy merchandiseRepoStrategy = new MerchandiseRepoStrategy(pretStrategy);
             merchandise = merchandiseRepoStrategy.applyPretStrategy(merchandise);
+            merchandiseRepo.updateMerchandise(merchandise);
             System.out.println(merchandise);
         }
         else if (strategy.equals("adaos")) {
             MerchandiseRepoStrategy merchandiseRepoStrategy = new MerchandiseRepoStrategy(new AdaugaAdaosPretStrategy(existingMerchandise.getPret()));
             merchandise = merchandiseRepoStrategy.applyPretStrategy(merchandise);
+            merchandiseRepo.updateMerchandise(merchandise);
             System.out.println(merchandise);
         }
 

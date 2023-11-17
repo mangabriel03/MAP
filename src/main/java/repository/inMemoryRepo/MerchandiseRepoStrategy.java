@@ -27,6 +27,8 @@ public class MerchandiseRepoStrategy {
     }
 
     public Merchandise applyPretStrategy(Merchandise merchandise) {
+        if (merchandise.getPret() == 0)
+            throw new IllegalArgumentException();
         System.out.println(merchandise.getPret());
         float pretCalculat = pretStrategy.calculeazaPret(merchandise.getPret());
         merchandise.setPret(pretCalculat);
