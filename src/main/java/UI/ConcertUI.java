@@ -1,5 +1,8 @@
 package UI;
 
+import ObserverLogic.ConcertObserver;
+import ObserverLogic.EvenimentObserver;
+import ObserverLogic.Observer;
 import domain.Concert;
 import repository.inMemoryRepo.ConcertRepo;
 
@@ -10,9 +13,14 @@ import java.util.Scanner;
 
 public class ConcertUI {
     private static final ConcertRepo concertRepo = new ConcertRepo();
+
+    private Observer observer = new Observer();
+    private static final EvenimentObserver concertObserver = new ConcertObserver();
+
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        concertRepo.adaugaObserver(concertObserver);
         boolean running = true;
 
         while (running) {
@@ -23,7 +31,8 @@ public class ConcertUI {
             System.out.println("2. Toate Concertele");
             System.out.println("3. Actualizare Concert");
             System.out.println("4. Sterge Concert");
-            System.out.println("5. Inapoi");
+            System.out.println("5. Observa observarii");
+            System.out.println("6. Inapoi");
             System.out.print("Alegeti comanda: ");
 
             int choice = scanner.nextInt();
@@ -65,7 +74,6 @@ public class ConcertUI {
 
         System.out.print("Introduceti Locatie: ");
         String location = scanner.nextLine();
-
         Concert createdConcert = concertRepo.createConcert(date, name, bandId, location);
         System.out.println("Concert creat cu ID: " + createdConcert.getIdConcert());
     }
