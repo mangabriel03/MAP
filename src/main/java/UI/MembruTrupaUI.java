@@ -1,15 +1,20 @@
 package UI;
 
+import RepoDB.MembruTrupaRepoDB;
 import domain.MembruTrupa;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 import repository.inMemoryRepo.MembruTrupaRepo;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+@RestController
 
 public class MembruTrupaUI {
-    private static final MembruTrupaRepo membruTrupaRepo = new MembruTrupaRepo();
+    @Autowired
+    private static MembruTrupaRepoDB membruTrupaRepo ;
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -37,10 +42,10 @@ public class MembruTrupaUI {
                     viewAllMembriTrupa();
                     break;
                 case 3:
-                    updateMembruTrupa();
+                    //updateMembruTrupa();
                     break;
                 case 4:
-                    deleteMembruTrupa();
+                    //deleteMembruTrupa();
                     break;
                 case 5:
                     running = false;
@@ -66,49 +71,49 @@ public class MembruTrupaUI {
         int bandId = scanner.nextInt();
         scanner.nextLine();  // Consume newline character
 
-        MembruTrupa createdMembruTrupa = membruTrupaRepo.createMembruTrupa(firstName, lastName, dateOfBirth, bandId);
-        System.out.println("Membru Trupa creat cu ID: " + createdMembruTrupa.getIdMembru());
+        //MembruTrupa createdMembruTrupa = membruTrupaRepo.createMembruTrupa(firstName, lastName, dateOfBirth, bandId);
+        //System.out.println("Membru Trupa creat cu ID: " + createdMembruTrupa.getIdMembru());
     }
 
     private static void viewAllMembriTrupa() {
-        List<MembruTrupa> membriTrupa = membruTrupaRepo.getAllMembrii();
+        List<MembruTrupa> membriTrupa = membruTrupaRepo.findAll();
         for (MembruTrupa membruTrupa : membriTrupa) {
             System.out.println(membruTrupa);
         }
     }
 
-    private static void updateMembruTrupa() {
-        System.out.print("Introduceti ID-ul Membrului Trupa pentru actualizare: ");
-        int membruTrupaId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        MembruTrupa existingMembruTrupa = membruTrupaRepo.getMembruById(membruTrupaId);
-        if (existingMembruTrupa == null) {
-            System.out.println("Membru Trupa nu a fost gasit.");
-            return;
-        }
-
-        System.out.print("Numa nou: ");
-        String firstName = scanner.nextLine();
-
-        System.out.print("Prenume nou: ");
-        String lastName = scanner.nextLine();
-
-        System.out.print("Noua Data de nastere (yyyy-MM-dd): ");
-        String dateOfBirthStr = scanner.nextLine();
-        LocalDate dateOfBirth = LocalDate.parse(dateOfBirthStr);
-
-        MembruTrupa updatedMembruTrupa = new MembruTrupa(membruTrupaId, firstName, lastName, dateOfBirth, existingMembruTrupa.getIdTrupa());
-        membruTrupaRepo.updateMembruTrupa(updatedMembruTrupa);
-        System.out.println("Membru Trupa actualizat cu succes.");
-    }
-
-    private static void deleteMembruTrupa() {
-        System.out.print("Introduceti ID-ul Membrului Trupa pentru a fi sters: ");
-        int membruTrupaId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        membruTrupaRepo.removeMembruTrupa(membruTrupaId);
-        System.out.println("Membru Trupa sters cu succes.");
-    }
+//    private static void updateMembruTrupa() {
+//        System.out.print("Introduceti ID-ul Membrului Trupa pentru actualizare: ");
+//        int membruTrupaId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        MembruTrupa existingMembruTrupa = membruTrupaRepo.getMembruById(membruTrupaId);
+//        if (existingMembruTrupa == null) {
+//            System.out.println("Membru Trupa nu a fost gasit.");
+//            return;
+//        }
+//
+//        System.out.print("Numa nou: ");
+//        String firstName = scanner.nextLine();
+//
+//        System.out.print("Prenume nou: ");
+//        String lastName = scanner.nextLine();
+//
+//        System.out.print("Noua Data de nastere (yyyy-MM-dd): ");
+//        String dateOfBirthStr = scanner.nextLine();
+//        LocalDate dateOfBirth = LocalDate.parse(dateOfBirthStr);
+//
+//        MembruTrupa updatedMembruTrupa = new MembruTrupa(membruTrupaId, firstName, lastName, dateOfBirth, existingMembruTrupa.getIdTrupa());
+//        membruTrupaRepo.updateMembruTrupa(updatedMembruTrupa);
+//        System.out.println("Membru Trupa actualizat cu succes.");
+//    }
+//
+//    private static void deleteMembruTrupa() {
+//        System.out.print("Introduceti ID-ul Membrului Trupa pentru a fi sters: ");
+//        int membruTrupaId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        membruTrupaRepo.removeMembruTrupa(membruTrupaId);
+//        System.out.println("Membru Trupa sters cu succes.");
+//    }
 }

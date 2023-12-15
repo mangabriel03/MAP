@@ -1,16 +1,27 @@
 package domain;
 
+import jakarta.persistence.*;
 import java.time.LocalDate;
-
+@Entity
 public class Fan extends Persoana{
+    @Id
+    @PrimaryKeyJoinColumn
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idFan;
+    @Column(name = "nume")
     private String nume;
+    @Column(name = "prenume")
     private String prenume;
+    @Column(name = "dataNasterii")
     private LocalDate dataNasterii;
 
     public Fan(int idFan, String nume, String prenume, LocalDate dataNasterii) {
         super(idFan, nume, prenume);
         this.dataNasterii = dataNasterii;
+    }
+
+    public Fan() {
+
     }
 
     public int getIdFan() {

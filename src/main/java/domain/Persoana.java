@@ -1,8 +1,16 @@
 package domain;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Persoana {
+    @Id
+    @PrimaryKeyJoinColumn
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idPersoana;
+    @Column(name = "nume")
     private String nume;
+    @Column(name = "prenume")
     private String prenume;
     public Persoana(){
     }

@@ -1,12 +1,21 @@
 package domain;
 
+import jakarta.persistence.*;
 import java.time.LocalDate;
-
+@Entity
 public class MembruTrupa extends Persoana{
+    @Id
+    @PrimaryKeyJoinColumn
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idMembru")
     private int idMembru;
+    @Column(name= "nume")
     private String nume;
+    @Column(name = "prenume")
     private String prenume;
+    @Column(name = "dataNasterii")
     private LocalDate dataNasterii;
+    @Column(name = "idTrupa")
     private int idTrupa;
 
     public MembruTrupa(){

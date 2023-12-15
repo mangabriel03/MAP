@@ -1,10 +1,20 @@
 package domain;
 
+import jakarta.persistence.*;
+@Entity
 public class Merchandise {
+    @Id
+    @PrimaryKeyJoinColumn
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idProdus;
+    @Column(name = "numeProdus")
     private String numeProdus;
+    @Column(name = "stoc")
     private int stoc;
+    @Column(name = "pret")
     private float pret;
+
+    @Column(name = "idTrupa")
     private int idTrupa;
     private PretStrategy pretStrategy;
     public Merchandise(int idProdus, String numeProdus, int stoc, float pret, int idTrupa) {
@@ -15,6 +25,11 @@ public class Merchandise {
         this.idTrupa = idTrupa;
         this.pretStrategy = new AplicaDiscountPretStrategy(0); // Setați o strategie implicită
     }
+
+    public Merchandise() {
+
+    }
+
     public void setPretStrategy(PretStrategy pretStrategy) {
         this.pretStrategy = pretStrategy;
     }

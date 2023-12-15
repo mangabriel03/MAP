@@ -1,16 +1,27 @@
 package domain;
 
+import jakarta.persistence.*;
 import java.time.LocalDate;
-
+@Entity
 public class Manager extends Persoana{
+    @Id
+    @PrimaryKeyJoinColumn
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idManager;
+    @Column(name = "nume")
     private String nume;
+    @Column(name = "prenume")
     private String prenume;
+    @Column(name = "dataNasterii")
     private LocalDate dataNasterii;
 
     public Manager(int idManager, String nume, String prenume, LocalDate dataNasterii) {
         super(idManager, nume, prenume);
         this.dataNasterii = dataNasterii;
+    }
+
+    public Manager() {
+
     }
 
     public int getIdManager() {

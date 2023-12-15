@@ -1,14 +1,25 @@
 package domain;
 
+import org.apache.commons.lang3.builder.EqualsExclude;
+
+import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
-
+@Entity
 public class Turneu {
+    @Id
+    @PrimaryKeyJoinColumn
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idTurneu;
+    @Column(name = "nume")
     private String nume;
+    @Column (name = "dataInceput")
     private LocalDate dataInceput;
+    @Column(name = "dataSfarsit")
     private LocalDate dataSfarsit;
+    @Column(name = "locatie")
     private String locatie;
+    @OneToMany
     private List<Concert> concerte;
 
     public Turneu(int idTurneu, String nume, LocalDate dataInceput, LocalDate dataSfarsit, String locatie, List<Concert> concerte ) {
@@ -18,6 +29,10 @@ public class Turneu {
         this.dataSfarsit = dataSfarsit;
         this.locatie = locatie;
         this.concerte = concerte;
+    }
+
+    public Turneu() {
+
     }
 
 

@@ -1,15 +1,20 @@
 package UI;
 
+import RepoDB.FanRepoDB;
 import domain.Fan;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 import repository.inMemoryRepo.FanRepo;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+@RestController
 
 public class FanUI {
-    private static final FanRepo fanRepo = new FanRepo();
+    @Autowired
+    private static FanRepoDB fanRepo;
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -37,10 +42,10 @@ public class FanUI {
                     viewAllFans();
                     break;
                 case 3:
-                    updateFan();
+                    //updateFan();
                     break;
                 case 4:
-                    deleteFan();
+                    //deleteFan();
                     break;
                 case 5:
                     running = false;
@@ -62,50 +67,50 @@ public class FanUI {
         String dateOfBirthStr = scanner.nextLine();
         LocalDate dateOfBirth = LocalDate.parse(dateOfBirthStr);
 
-        Fan createdFan = fanRepo.createFan(firstName, lastName, dateOfBirth);
-        System.out.println("Fan creat cu ID: " + createdFan.getIdFan());
+        //Fan createdFan = fanRepo.createFan(firstName, lastName, dateOfBirth);
+        //System.out.println("Fan creat cu ID: " + createdFan.getIdFan());
     }
 
     private static void viewAllFans() {
-        List<Fan> fans = fanRepo.getAllFani();
+        List<Fan> fans = fanRepo.findAll();
         for (Fan fan : fans) {
             System.out.println(fan);
         }
     }
 
-    private static void updateFan() {
-        System.out.print("Introduceti ID-ul Fanului pentru a fi adaugat: ");
-        int fanId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        Fan existingFan = fanRepo.getFanById(fanId);
-        if (existingFan == null) {
-            System.out.println("Fanul nu a fost gasit.");
-            return;
-        }
-
-        System.out.print("Nume nou: ");
-        String firstName = scanner.nextLine();
-
-        System.out.print("Prenume nou: ");
-        String lastName = scanner.nextLine();
-
-        System.out.print("Noua Data de nastere (yyyy-MM-dd): ");
-        String dateOfBirthStr = scanner.nextLine();
-        LocalDate dateOfBirth = LocalDate.parse(dateOfBirthStr);
-
-        Fan updatedFan = new Fan(fanId, firstName, lastName, dateOfBirth);
-        fanRepo.updateFan(updatedFan);
-        System.out.println("Fan actualizat cu succes.");
-    }
-
-    private static void deleteFan() {
-        System.out.print("Introduceti ID-ul Fanului pentru a fi sters: ");
-        int fanId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        fanRepo.removeFan(fanId);
-        System.out.println("Fan sters cu succes.");
-    }
+//    private static void updateFan() {
+//        System.out.print("Introduceti ID-ul Fanului pentru a fi adaugat: ");
+//        int fanId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        Fan existingFan = fanRepo.getFanById(fanId);
+//        if (existingFan == null) {
+//            System.out.println("Fanul nu a fost gasit.");
+//            return;
+//        }
+//
+//        System.out.print("Nume nou: ");
+//        String firstName = scanner.nextLine();
+//
+//        System.out.print("Prenume nou: ");
+//        String lastName = scanner.nextLine();
+//
+//        System.out.print("Noua Data de nastere (yyyy-MM-dd): ");
+//        String dateOfBirthStr = scanner.nextLine();
+//        LocalDate dateOfBirth = LocalDate.parse(dateOfBirthStr);
+//
+//        Fan updatedFan = new Fan(fanId, firstName, lastName, dateOfBirth);
+//        fanRepo.updateFan(updatedFan);
+//        System.out.println("Fan actualizat cu succes.");
+//    }
+//
+//    private static void deleteFan() {
+//        System.out.print("Introduceti ID-ul Fanului pentru a fi sters: ");
+//        int fanId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        fanRepo.removeFan(fanId);
+//        System.out.println("Fan sters cu succes.");
+//    }
 }
 

@@ -1,14 +1,19 @@
 package UI;
 
+import RepoDB.TrupaRepoDB;
 import domain.Trupa;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 import repository.inMemoryRepo.TrupaRepo;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+@RestController
 
 public class TrupaUI {
-    private static final TrupaRepo trupaRepo = new TrupaRepo();
+    @Autowired
+    private static TrupaRepoDB trupaRepo ;
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -36,10 +41,10 @@ public class TrupaUI {
                     viewAllTrupe();
                     break;
                 case 3:
-                    updateTrupa();
+                    //updateTrupa();
                     break;
                 case 4:
-                    deleteTrupa();
+                    //deleteTrupa();
                     break;
                 case 5:
                     running = false;
@@ -62,51 +67,51 @@ public class TrupaUI {
         int formationYear = scanner.nextInt();
         scanner.nextLine();  // Consume newline character
 
-        Trupa createdTrupa = trupaRepo.createTrupa(bandName, managerId, formationYear);
-        System.out.println("Trupa creata cu ID: " + createdTrupa.getIdTrupa());
+        //Trupa createdTrupa = trupaRepo.createTrupa(bandName, managerId, formationYear);
+        //System.out.println("Trupa creata cu ID: " + createdTrupa.getIdTrupa());
     }
 
     private static void viewAllTrupe() {
-        List<Trupa> trupe = trupaRepo.getAllTrupe();
+        List<Trupa> trupe = trupaRepo.findAll();
         for (Trupa trupa : trupe) {
             System.out.println(trupa);
         }
     }
 
-    private static void updateTrupa() {
-        System.out.print("Introduceti ID-ul Trupei pentru actualizare: ");
-        int trupaId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        Trupa existingTrupa = trupaRepo.getTrupaById(trupaId);
-        if (existingTrupa == null) {
-            System.out.println("Trupa nu a fost gasita.");
-            return;
-        }
-
-        System.out.print("Noul Nume al Trupei: ");
-        String bandName = scanner.nextLine();
-
-        System.out.print("Noul Manager al Trupei: ");
-        int managerId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        System.out.print("Noul an al Infintarii Trupei: ");
-        int formationYear = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        Trupa updatedTrupa = new Trupa(trupaId, bandName, managerId, formationYear);
-        trupaRepo.updateTrupa(updatedTrupa);
-        System.out.println("Trupa actualiztata cu succes");
-    }
-
-    private static void deleteTrupa() {
-        System.out.print("Introduceti ID-ul Trupei pentru stergere: ");
-        int trupaId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        trupaRepo.removeTrupa(trupaId);
-        System.out.println("Trupa stearsa cu succes.");
-    }
+//    private static void updateTrupa() {
+//        System.out.print("Introduceti ID-ul Trupei pentru actualizare: ");
+//        int trupaId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        Trupa existingTrupa = trupaRepo.getTrupaById(trupaId);
+//        if (existingTrupa == null) {
+//            System.out.println("Trupa nu a fost gasita.");
+//            return;
+//        }
+//
+//        System.out.print("Noul Nume al Trupei: ");
+//        String bandName = scanner.nextLine();
+//
+//        System.out.print("Noul Manager al Trupei: ");
+//        int managerId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        System.out.print("Noul an al Infintarii Trupei: ");
+//        int formationYear = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        Trupa updatedTrupa = new Trupa(trupaId, bandName, managerId, formationYear);
+//        trupaRepo.updateTrupa(updatedTrupa);
+//        System.out.println("Trupa actualiztata cu succes");
+//    }
+//
+//    private static void deleteTrupa() {
+//        System.out.print("Introduceti ID-ul Trupei pentru stergere: ");
+//        int trupaId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        trupaRepo.removeTrupa(trupaId);
+//        System.out.println("Trupa stearsa cu succes.");
+//    }
 }
 

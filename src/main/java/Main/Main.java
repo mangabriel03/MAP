@@ -2,9 +2,12 @@ package Main;
 
 import UI.*;
 import domain.AdaugaAdaosPretStrategy;
-import domain.MelodieFactory;
+//import domain.MelodieFactory;
 import repository.inMemoryRepo.MerchandiseRepo;
 import repository.inMemoryRepo.MerchandiseRepoStrategy;
+
+
+
 
 
 import java.util.Scanner;
@@ -13,6 +16,8 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+
+
         boolean running = true;
 
         while (running) {
@@ -64,7 +69,7 @@ public class Main {
                     TurneuUI.main(new String[]{});
                     break;
                 case 10:
-                    MelodieAppUI.main(new String[]{});
+                    //MelodieAppUI.main(new String[]{});
                 case 11:
                     running = false;
                     break;
@@ -72,6 +77,6 @@ public class Main {
                     System.out.println("Invalid");
             }
         }
-    }
+  }
 }
 

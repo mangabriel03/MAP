@@ -1,14 +1,19 @@
 package UI;
 
+import RepoDB.PieseRepoDB;
 import domain.Piesa;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 import repository.inMemoryRepo.PieseRepo;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+@RestController
 
 public class PieseUI {
-    private static final PieseRepo pieseRepo = new PieseRepo();
+    @Autowired
+    private static PieseRepoDB pieseRepo;
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -36,10 +41,10 @@ public class PieseUI {
                     viewAllPiese();
                     break;
                 case 3:
-                    updatePiesa();
+                    //updatePiesa();
                     break;
                 case 4:
-                    deletePiesa();
+                    //deletePiesa();
                     break;
                 case 5:
                     running = false;
@@ -58,46 +63,46 @@ public class PieseUI {
         float duration = scanner.nextFloat();
         scanner.nextLine();  // Consume newline character
 
-        Piesa createdPiesa = pieseRepo.createPiesa(title, duration);
-        System.out.println("Piesa creata cu ID: " + createdPiesa.getIdPiesa());
+        //Piesa createdPiesa = pieseRepo.createPiesa(title, duration);
+        //System.out.println("Piesa creata cu ID: " + createdPiesa.getIdPiesa());
     }
 
     private static void viewAllPiese() {
-        List<Piesa> piese = pieseRepo.getAllPiese();
+        List<Piesa> piese = pieseRepo.findAll();
         for (Piesa piesa : piese) {
             System.out.println(piesa);
         }
     }
 
-    private static void updatePiesa() {
-        System.out.print("Introduceti ID-ul Piesei pentru actualizare: ");
-        int piesaId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        Piesa existingPiesa = pieseRepo.getPiesaById(piesaId);
-        if (existingPiesa == null) {
-            System.out.println("Piesa nu a fost gasita.");
-            return;
-        }
-
-        System.out.print("Noul Titlu: ");
-        String title = scanner.nextLine();
-
-        System.out.print("Durata noua: ");
-        float duration = scanner.nextFloat();
-        scanner.nextLine();  // Consume newline character
-
-        Piesa updatedPiesa = new Piesa(piesaId, title, duration);
-        pieseRepo.updatePiesa(updatedPiesa);
-        System.out.println("Piesa actualizata cu succes.");
-    }
-
-    private static void deletePiesa() {
-        System.out.print("Introduceti ID-ul Piesei pentru stergere: ");
-        int piesaId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        pieseRepo.removePiesa(piesaId);
-        System.out.println("Piesa sters cu succes.");
-    }
+//    private static void updatePiesa() {
+//        System.out.print("Introduceti ID-ul Piesei pentru actualizare: ");
+//        int piesaId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        Piesa existingPiesa = pieseRepo.getPiesaById(piesaId);
+//        if (existingPiesa == null) {
+//            System.out.println("Piesa nu a fost gasita.");
+//            return;
+//        }
+//
+//        System.out.print("Noul Titlu: ");
+//        String title = scanner.nextLine();
+//
+//        System.out.print("Durata noua: ");
+//        float duration = scanner.nextFloat();
+//        scanner.nextLine();  // Consume newline character
+//
+//        Piesa updatedPiesa = new Piesa(piesaId, title, duration);
+//        pieseRepo.updatePiesa(updatedPiesa);
+//        System.out.println("Piesa actualizata cu succes.");
+//    }
+//
+//    private static void deletePiesa() {
+//        System.out.print("Introduceti ID-ul Piesei pentru stergere: ");
+//        int piesaId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        pieseRepo.removePiesa(piesaId);
+//        System.out.println("Piesa sters cu succes.");
+//    }
 }

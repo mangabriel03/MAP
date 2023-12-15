@@ -1,16 +1,21 @@
 package UI;
 
+import RepoDB.TurneuRepoDB;
 import domain.Turneu;
 import domain.Concert;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 import repository.inMemoryRepo.TurneuRepo;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+@RestController
 
 public class TurneuUI {
-    private static final TurneuRepo turneuRepo = new TurneuRepo();
+    @Autowired
+    private static TurneuRepoDB turneuRepo ;
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -38,10 +43,10 @@ public class TurneuUI {
                     viewAllTurnee();
                     break;
                 case 3:
-                    updateTurneu();
+                    //updateTurneu();
                     break;
                 case 4:
-                    deleteTurneu();
+                    //deleteTurneu();
                     break;
                 case 5:
                     running = false;
@@ -69,55 +74,55 @@ public class TurneuUI {
 
         List<Concert> concerte = new ArrayList<>();  // You can implement this part according to your needs
 
-        Turneu createdTurneu = turneuRepo.createTurneu(turneuName, startDate, endDate, location, concerte);
-        System.out.println("Turneu creat cu ID: " + createdTurneu.getIdTurneu());
+        //Turneu createdTurneu = turneuRepo.createTurneu(turneuName, startDate, endDate, location, concerte);
+        //System.out.println("Turneu creat cu ID: " + createdTurneu.getIdTurneu());
     }
 
     private static void viewAllTurnee() {
-        List<Turneu> turnee = turneuRepo.getAllTurnee();
+        List<Turneu> turnee = turneuRepo.findAll();
         for (Turneu turneu : turnee) {
             System.out.println(turneu);
         }
     }
 
-    private static void updateTurneu() {
-        System.out.print("Introduceti ID-ul Turneului pentru actualizare: ");
-        int turneuId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        Turneu existingTurneu = turneuRepo.getTurneuById(turneuId);
-        if (existingTurneu == null) {
-            System.out.println("Turneu nu a ost gasit.");
-            return;
-        }
-
-        System.out.print("Noul Nume al Turneului: ");
-        String turneuName = scanner.nextLine();
-
-        System.out.print("Noua Data de Incepere(yyyy-MM-dd): ");
-        String startDateStr = scanner.nextLine();
-        LocalDate startDate = LocalDate.parse(startDateStr);
-
-        System.out.print("Noua Data de Sfarsit (yyyy-MM-dd): ");
-        String endDateStr = scanner.nextLine();
-        LocalDate endDate = LocalDate.parse(endDateStr);
-
-        System.out.print("Noua Locatie: ");
-        String location = scanner.nextLine();
-
-        List<Concert> concerte = new ArrayList<>();  // You can implement this part according to your needs
-
-        Turneu updatedTurneu = new Turneu(turneuId, turneuName, startDate, endDate, location, concerte);
-        turneuRepo.updateTurneu(updatedTurneu);
-        System.out.println("Turneu actualizata cu succes.");
-    }
-
-    private static void deleteTurneu() {
-        System.out.print("Introduceti ID-ul Trupei pentru stergere: ");
-        int turneuId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        turneuRepo.removeTurneu(turneuId);
-        System.out.println("Turneu stergere cu succes.");
-    }
+//    private static void updateTurneu() {
+//        System.out.print("Introduceti ID-ul Turneului pentru actualizare: ");
+//        int turneuId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        Turneu existingTurneu = turneuRepo.getTurneuById(turneuId);
+//        if (existingTurneu == null) {
+//            System.out.println("Turneu nu a ost gasit.");
+//            return;
+//        }
+//
+//        System.out.print("Noul Nume al Turneului: ");
+//        String turneuName = scanner.nextLine();
+//
+//        System.out.print("Noua Data de Incepere(yyyy-MM-dd): ");
+//        String startDateStr = scanner.nextLine();
+//        LocalDate startDate = LocalDate.parse(startDateStr);
+//
+//        System.out.print("Noua Data de Sfarsit (yyyy-MM-dd): ");
+//        String endDateStr = scanner.nextLine();
+//        LocalDate endDate = LocalDate.parse(endDateStr);
+//
+//        System.out.print("Noua Locatie: ");
+//        String location = scanner.nextLine();
+//
+//        List<Concert> concerte = new ArrayList<>();  // You can implement this part according to your needs
+//
+//        Turneu updatedTurneu = new Turneu(turneuId, turneuName, startDate, endDate, location, concerte);
+//        turneuRepo.updateTurneu(updatedTurneu);
+//        System.out.println("Turneu actualizata cu succes.");
+//    }
+//
+//    private static void deleteTurneu() {
+//        System.out.print("Introduceti ID-ul Trupei pentru stergere: ");
+//        int turneuId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        turneuRepo.removeTurneu(turneuId);
+//        System.out.println("Turneu stergere cu succes.");
+//    }
 }

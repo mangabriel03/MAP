@@ -1,12 +1,20 @@
 package domain;
 
+import jakarta.persistence.*;
 import java.time.LocalDate;
-
+@Entity
 public class Concert {
+    @Id
+    @PrimaryKeyJoinColumn
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idConcert;
+    @Column(name = "data")
     private LocalDate data;
+    @Column(name = "nume")
     private String nume;
+    @Column(name = "idTrupa")
     private int idTrupa;
+    @Column(name = "locatie")
     private String locatie;
 
 
@@ -16,6 +24,10 @@ public class Concert {
         this.nume = nume;
         this.idTrupa = idTrupa;
         this.locatie = locatie;
+    }
+
+    public Concert() {
+
     }
 
     public int getIdConcert() {

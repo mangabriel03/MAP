@@ -3,16 +3,21 @@ package UI;
 import ObserverLogic.ConcertObserver;
 import ObserverLogic.EvenimentObserver;
 import ObserverLogic.Observer;
+import RepoDB.ConcertRepoDB;
 import domain.Concert;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 import repository.inMemoryRepo.ConcertRepo;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+@RestController
 
 public class ConcertUI {
-    private static final ConcertRepo concertRepo = new ConcertRepo();
+    @Autowired
+    private static ConcertRepoDB concertRepo ;
 
     private Observer observer = new Observer();
     private static final EvenimentObserver concertObserver = new ConcertObserver();
@@ -20,7 +25,7 @@ public class ConcertUI {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        concertRepo.adaugaObserver(concertObserver);
+        //concertRepo.adaugaObserver(concertObserver);
         boolean running = true;
 
         while (running) {
@@ -46,10 +51,10 @@ public class ConcertUI {
                     viewAllConcerts();
                     break;
                 case 3:
-                    updateConcert();
+                    //updateConcert();
                     break;
                 case 4:
-                    deleteConcert();
+                    //deleteConcert();
                     break;
                 case 5:
                     running = false;
@@ -74,53 +79,53 @@ public class ConcertUI {
 
         System.out.print("Introduceti Locatie: ");
         String location = scanner.nextLine();
-        Concert createdConcert = concertRepo.createConcert(date, name, bandId, location);
-        System.out.println("Concert creat cu ID: " + createdConcert.getIdConcert());
+        //Concert createdConcert = concertRepo.createConcert(date, name, bandId, location);
+        //System.out.println("Concert creat cu ID: " + createdConcert.getIdConcert());
     }
 
     private static void viewAllConcerts() {
-        List<Concert> concerts = concertRepo.getAllConcerte();
+        List<Concert> concerts = concertRepo.findAll();
         for (Concert concert : concerts) {
             System.out.println(concert);
         }
     }
 
-    private static void updateConcert() {
-        System.out.print("Introduceti ID-ul Concertului pentru actualizare: ");
-        int concertId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        Concert existingConcert = concertRepo.getConcertById(concertId);
-        if (existingConcert == null) {
-            System.out.println("Concertul nu a fost gasit.");
-            return;
-        }
-
-        System.out.print("Introduceti data noua (yyyy-MM-dd): ");
-        String dateStr = scanner.nextLine();
-        LocalDate date = LocalDate.parse(dateStr);
-
-        System.out.print("Introduceti Nume nou: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Introduceti ID-ul nou a Trupei: ");
-        int bandId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        System.out.print("Introduceti locatie noua: ");
-        String location = scanner.nextLine();
-
-        Concert updatedConcert = new Concert(concertId, date, name, bandId, location);
-        concertRepo.updateConcerte(updatedConcert);
-        System.out.println("Concert actualizat cu succes.");
-    }
-
-    private static void deleteConcert() {
-        System.out.print("Introduceti ID-ul Concertului pentru a fii sters: ");
-        int concertId = scanner.nextInt();
-        scanner.nextLine();  // Consume newline character
-
-        concertRepo.removeConcert(concertId);
-        System.out.println("Concert sters cu succes.");
-    }
+//    private static void updateConcert() {
+//        System.out.print("Introduceti ID-ul Concertului pentru actualizare: ");
+//        int concertId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        Concert existingConcert = concertRepo.getConcertById(concertId);
+//        if (existingConcert == null) {
+//            System.out.println("Concertul nu a fost gasit.");
+//            return;
+//        }
+//
+//        System.out.print("Introduceti data noua (yyyy-MM-dd): ");
+//        String dateStr = scanner.nextLine();
+//        LocalDate date = LocalDate.parse(dateStr);
+//
+//        System.out.print("Introduceti Nume nou: ");
+//        String name = scanner.nextLine();
+//
+//        System.out.print("Introduceti ID-ul nou a Trupei: ");
+//        int bandId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        System.out.print("Introduceti locatie noua: ");
+//        String location = scanner.nextLine();
+//
+//        Concert updatedConcert = new Concert(concertId, date, name, bandId, location);
+//        concertRepo.updateConcerte(updatedConcert);
+//        System.out.println("Concert actualizat cu succes.");
+//    }
+//
+//    private static void deleteConcert() {
+//        System.out.print("Introduceti ID-ul Concertului pentru a fii sters: ");
+//        int concertId = scanner.nextInt();
+//        scanner.nextLine();  // Consume newline character
+//
+//        concertRepo.removeConcert(concertId);
+//        System.out.println("Concert sters cu succes.");
+//    }
 }

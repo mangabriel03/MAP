@@ -1,16 +1,26 @@
 package domain;
 
+import jakarta.persistence.*;
 import java.time.LocalDate;
-
+@Entity
 public class Piesa {
+    @Id
+    @PrimaryKeyJoinColumn
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int idPiesa;
+    @Column(name = "titlu")
     private String titlu;
+    @Column(name = "durata")
     private float durata;
 
     public Piesa(int idPiesa, String titlu, float durata) {
         this.idPiesa = idPiesa;
         this.titlu = titlu;
         this.durata = durata;
+    }
+
+    public Piesa() {
+
     }
 
     public int getIdPiesa() {
